@@ -7,10 +7,6 @@ const ImageSchema = new Schema({
   filename: String,
 });
 
-ImageSchema.virtual("thumbnail").get(function () {
-  return this.url.replace("/upload", "/upload/q_auto/w_auto/dpr_auto/f_auto");
-});
-
 const CampgroundSchema = new Schema({
   title: String,
   images: [ImageSchema],
