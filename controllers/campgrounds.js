@@ -16,6 +16,12 @@ module.exports.createCampground = async (req, res, next) => {
     url: f.path,
     filename: f.filename,
   }));
+  for (let image of campground.images) {
+    image.url = image.url.replace(
+      "/upload",
+      "/upload/c_scale,w_auto/f_auto/q_auto"
+    );
+  }
   campground.author = req.user._id;
   await campground.save();
   req.flash("success", "Successfully made a new campground!");

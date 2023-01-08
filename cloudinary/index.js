@@ -5,6 +5,7 @@ cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_KEY,
   api_secret: process.env.CLOUDINARY_SECRET,
+  secure: true,
 });
 
 const storage = new CloudinaryStorage({
@@ -12,7 +13,6 @@ const storage = new CloudinaryStorage({
   params: {
     folder: "YelpCamp",
     allowed_formats: ["jpeg", "png", "jpg", "webp", "avif"],
-    fetch_format: "webp",
   },
 });
 
