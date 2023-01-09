@@ -14,7 +14,6 @@ const storage = new CloudinaryStorage({
     folder: "YelpCamp",
     allowed_formats: ["jpeg", "png", "jpg", "webp", "avif"],
     use_filename: true,
-    unique_filename: false,
   },
 });
 
