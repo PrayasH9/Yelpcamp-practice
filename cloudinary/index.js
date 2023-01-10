@@ -16,8 +16,9 @@ const storage = new CloudinaryStorage({
     allowed_formats: ["jpeg", "png", "jpg", "webp", "avif"],
     public_id: (req, file) => {
       const campground = new Campground(req.body.campground);
-      campground.title = campground.title.replace(" ", "-") + `-${randomNum()}`;
-      return campground.title;
+      const imageUrlName =
+        campground.title.replace(" ", "-") + `-${randomNum()}`;
+      return imageUrlName;
     },
   },
 });
