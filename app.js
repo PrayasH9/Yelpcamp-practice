@@ -2,6 +2,7 @@ if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }
 
+const compression = require("compression");
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
@@ -16,7 +17,6 @@ const User = require("./models/user");
 const mongoSanitize = require("express-mongo-sanitize");
 const helmet = require("helmet");
 const MongoStore = require("connect-mongo");
-const compression = require("compression");
 
 // requiring routes
 const userRoutes = require("./routes/users");
