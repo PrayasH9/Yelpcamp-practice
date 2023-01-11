@@ -62,6 +62,12 @@ module.exports.updateCampground = async (req, res) => {
     ...req.body.campground,
   });
   const imgs = req.files.map((f) => ({ url: f.path, filename: f.filename }));
+  for (let image of imgs) {
+    image.url = image.url.replace(
+      "/upload",
+      "/upload/c_fill,w_auto/f_auto/q_auto"
+    );
+  }
   campground.images.push(...imgs);
   await campground.save();
   if (req.body.deleteImages) {
